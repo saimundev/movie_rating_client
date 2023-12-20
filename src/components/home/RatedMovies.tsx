@@ -13,6 +13,7 @@ import CartSkeleton from '../shared/skeleton/CartSkeleton';
 
 const RatedMovies = () => {
     const { data, isLoading, isError } = useGetMoviesQuery([])
+
     return (
         <Container className='relative mt-32'>
             <div className="mb-10 text-center">
@@ -42,12 +43,15 @@ const RatedMovies = () => {
 
             </Swiper>
             {/* custom button style */}
-            <div className="button_next_slide place-items-center absolute top-[60%] left-[104px] z-50 grid w-12 h-12 bg-white rounded-lg translate-y-[-50%] cursor-pointer">
-                <RightArrow className='w-7 h-7' />
+            {data?.length >= 6 && <div className="">
+                <div className="button_next_slide place-items-center absolute top-[60%] left-[104px] z-40 grid w-12 h-12 bg-white rounded-lg translate-y-[-50%] cursor-pointer">
+                    <RightArrow className='w-7 h-7' />
+                </div>
+                <div className="button_prev_slide place-items-center absolute top-[60%] right-[104px] z-40 grid w-12 h-12 bg-white rounded-lg translate-y-[-50%] cursor-pointer">
+                    <LeftArrow className='w-7 h-7' />
+                </div>
             </div>
-            <div className="button_prev_slide place-items-center absolute top-[60%] right-[104px] z-50 grid w-12 h-12 bg-white rounded-lg translate-y-[-50%] cursor-pointer">
-                <LeftArrow className='w-7 h-7' />
-            </div>
+            }
         </Container>
     )
 }

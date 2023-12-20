@@ -32,6 +32,60 @@ const getMovie = async (movieId: string) => {
 
 const MovieDetails = async ({ params: { slug } }: ParamsProps) => {
     const movieData = await getMovie(slug)
+    console.log(movieData)
+
+    let result = 0;
+    let one = 0,
+        two = 0,
+        three = 0,
+        four = 0,
+        five = 0,
+        six = 0,
+        seven = 0,
+        eight = 0,
+        nine = 0,
+        ten = 0,
+        total = 0;
+    if (movieData?.reviews?.length > 0) {
+        movieData?.reviews?.forEach((item: any) => {
+            if (item.rating === 1) {
+                one += 1;
+            }
+            if (item.rating === 2) {
+                two += 1;
+            }
+            if (item.rating === 3) {
+                three += 1;
+            }
+            if (item.rating === 4) {
+                four += 1;
+            }
+            if (item.rating === 5) {
+                five += 1;
+            }
+            if (item.rating === 6) {
+                six += 1;
+            }
+            if (item.rating === 7) {
+                seven += 1;
+            }
+            if (item.rating === 8) {
+                eight += 1;
+            }
+            if (item.rating === 9) {
+                nine += 1;
+            }
+            if (item.rating === 10) {
+                ten += 1;
+            }
+        });
+        total = one + two + three + four + five + six + seven + eight + nine + ten;
+        result = (1 * one + 2 * two + 3 * three + 4 * four + 5 * five + 6 * six + 7 * seven + 8 * eight + 9 * nine + 10 * ten) / total;
+    } else {
+        total = 0;
+        result = 0;
+    }
+    const rating = Number(result).toFixed(1);
     return (
         <Container>
             <div className="pt-28 flex justify-between">
@@ -46,12 +100,12 @@ const MovieDetails = async ({ params: { slug } }: ParamsProps) => {
                         <h4>RATING</h4>
                         <div className="hover:bg-slate-700 flex items-center gap-2 px-1 py-0 rounded cursor-pointer">
                             <StarSolidIcon className='w-6 h-6 text-yellow-500' />
-                            <h3 className='mt-2 text-lg'>9.3 <sup className='text-gray-300'>/10</sup></h3>
+                            <h3 className='mt-2 text-lg'>{rating} <sup className='text-gray-300'>/10</sup></h3>
                         </div>
                     </div>
 
                     {/* your rating */}
-                    <Rating />
+                    <Rating movieId={slug} />
                 </div >
             </div >
             <div className="grid grid-cols-[1fr_2fr_1fr] gap-4 mt-4">

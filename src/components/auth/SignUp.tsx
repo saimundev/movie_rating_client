@@ -73,8 +73,7 @@ const SignUp = () => {
     useSignUpMutation();
   const dispatch = useAppDispatch();
 
-  console.log(data)
-  console.log(error)
+
   //error message
   useEffect(() => {
     if (error) {

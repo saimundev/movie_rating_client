@@ -166,7 +166,7 @@ const SignIn = () => {
             </CardContent>
             <div className="flex justify-end">
               <Button asChild variant="link" className="mt-2 text-gray-500">
-                <Link href="forgot-password">Forgotten password?</Link>
+                <Link href="#">Forgotten password?</Link>
               </Button>
             </div>
             <CardFooter className="flex flex-col justify-center">

@@ -82,8 +82,8 @@ const Header = () => {
                             <SelectContent >
                                 <SelectGroup >
                                     <SelectItem value="EN" >All</SelectItem>
-                                    <SelectItem value="banana">ENG</SelectItem>
-                                    <SelectItem value="blueberry">US</SelectItem>
+                                    <SelectItem value="banana">Entertainment</SelectItem>
+                                    <SelectItem value="blueberry">Action</SelectItem>
                                 </SelectGroup>
                             </SelectContent>
                         </Select>
@@ -92,7 +92,7 @@ const Header = () => {
 
                 {/* menu bar start from here */}
                 <menu className='flex items-center gap-5 text-sm text-white'>
-                    <Link href="#">Home</Link>
+                    <Link href="/">Home</Link>
                     <Link href="#">Movies</Link>
                     <Link href="#">Watch-list</Link>
 
